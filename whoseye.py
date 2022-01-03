@@ -1,220 +1,29 @@
-"""
 import requests
-import phonenumbers
-from phonenumbers import geocoder
-from phonenumbers import carrier, timezone
-import json
+
 print("\033[31;1m WHOSEYE \u001b[0m".center(100),)
 
-def ip_detail():
+def geo_ip():
     print("\u001b[33;1mEnter the ip address \u001b[0m")
     ip=input("")
-    response=requests.get("https://ipinfo.io/"+ip+"/json?token=da1626184224b0")
-    #print(response.text)
-    x=response.text
-    y=json.loads(x)
-    print(y["ip"])
-    print(y["city"])
-    print(y["region"])
-    print(y["country"])
-    print(y["loc"])
-    print(y["org"])
-    print(y["timezone"])
-    
-def phone_detail():
-    my_number=phonenumbers.parse(input("\u001b[33;1m Enter the number with country code: \
-        \n\u001b[0m"))
-    print(geocoder.country_name_for_number(my_number,"en"))
-    print(carrier.name_for_number(my_number,"en"))
-    print(timezone.time_zones_for_number(my_number))
-    
+    response=requests.get("https://api.hackertarget.com/geoip/?q="+ip)
+    print(response.text)
 
-    
+def tcpsc():
+    print("\u001b[33;1mEnter the ip address \u001b[0m")
+    ip=input("")
+    response=requests.get("https://api.hackertarget.com/nmap/?q="+ip)
+    print(response.text)
+
 print("\u001b[33;1mChoose the options \u001b[0m\
-      \n\u001b[32;1m[1]IP DETAILS \u001b[0m\
-      \n\u001b[32;1m[2]PHONE NUMBER DETAILS \u001b[0m")
+      \n\u001b[32;1m[1]GEOIP \u001b[0m\
+      \n\u001b[32;1m[2]TCPSCAN \u001b[0m")
 
 op=input("\u001b[32;1m ENTER THE OPTION: \u001b[0m")
 
 if op=="1":
-    ip_detail()
+    geo_ip()
 elif op=="2":
-    phone_detail()
+    tcpsc()      
 else:
     print("INVALID OPTION")
-"""
-import sys
-import time
-import os
-from urllib2 import *
-from platform import system
-print
-print
-print
-os.system("clear")
-os.system("bash logo.sh")
-print
-print
-print
-print "\033[1m\033[32m\t\t \033[1m\033[31m<==\033[33m[\033[32m Author Info \033[33m]\033[31m==>\033[0m"
-time.sleep(3)
-print
-print
-print
-print "\033[1m\033[33m\n\tDeveloper : \033[32m \033[33mS\033[32mutariya \033[33mP\033[32marixit\033[0m"
-time.sleep(1)
-print "\033[1m\033[33m\n\tBlog      :  \033[32mhttp:\033[33m//\033[32mbhai\033[33m4\033[32myou.blogspot.com\033[0m"
-time.sleep(1)
-print "\033[1m\033[33m\n\tGithub    :  \033[32mhttp:\033[33m//\033[32mwww.github.com\033[33m/\033[32mBhai4You\033[0m"
-time.sleep(1)
-print "\033[1m\033[33m\n\tYoutube   : \033[32m \033[33mB\033[32mull \033[33mA\033[32mnonymous\033[0m"
-time.sleep(2)
-print
-print
 
-def ping():
-	print
-	print
-	os.system("toilet -f pagga 'Ping Attack       ' | lolcat")
-	time.sleep(1)
-	print
-	
-	os.system("curl https://api.hackertarget.com/nping/?q=" + ip)
-	print(" ")
-	
-def http():
-	print
-	print
-	os.system("toilet -f pagga 'Http Header       ' | lolcat")
-	time.sleep(1)
-	print
-	os.system("curl https://api.hackertarget.com/httpheaders/?q=" + ip)
-	print(" ")
-
-
-
-def whois():
-	print
-	print
-
-	os.system("toilet -f pagga 'Whois       ' | lolcat")
-	time.sleep(1)
-	print
-	os.system("curl http://api.hackertarget.com/whois/?q=" + ip)
-	print(" ")
-
-
-def trace():
-	print
-	print
-	os.system("toilet -f pagga 'Traceroute       ' | lolcat")
-	time.sleep(1)
-	print
-	os.system("curl https://api.hackertarget.com/mtr/?q=" + ip)
-	print(" ")
-
-
-
-def dns():
-	print
-	print
-	os.system("toilet -f pagga 'DNS Lookup       ' | lolcat")
-	time.sleep(1)
-	print
-	os.system("curl https://api.hackertarget.com/dnslookup/?q=" + ip)
-	print(" ")
-
-
-def reversedns():
-	print
-	print
-	os.system("toilet -f pagga 'Reverse Dns       ' | lolcat")
-	time.sleep(1)
-	print
-	os.system("curl https://api.hackertarget.com/reversedns/?q=" + ip)
-	print(" ")
-
-
-def geoip():
-	print
-	print
-	os.system("toilet -f pagga 'Geo Ip       ' | lolcat")
-	time.sleep(1)
-	print
-	os.system("curl https://api.hackertarget.com/geoip/?q=" + ip)
-	print(" ")
-
-
-def reverseip():
-	print
-	print
-	os.system("toilet -f pagga 'Reverse IP       ' | lolcat")
-	time.sleep(1)
-	print
-	os.system("curl https://api.hackertarget.com/reverseiplookup/?q=" + ip)
-	print(" ")
-	
-
-def nmap():
-	print
-	print
-	os.system("toilet -f pagga 'Nmap       ' | lolcat")
-	time.sleep(1)
-	print
-	os.system("curl https://api.hackertarget.com/nmap/?q=" + ip)
-	print(" ")
-
-
-
-def plink():
-	print
-	print
-	os.system("toilet -f pagga 'Page Link       ' | lolcat")
-	time.sleep(1)
-	print
-	os.system("curl https://api.hackertarget.com/pagelinks/?q=" + ip)
-	print(" ")
-
-
-	print
-	print
-	time.sleep(3)
-	print
-os.system("clear")
-print
-os.system( "bash logo.sh" )
-print
-def mnu():
-	print "\033[1m\033[32m[+]\033[36m Whois lookup"
-	print "\033[32m[+] \033[36mDNS lookup"
-	print "\033[32m[+]\033[36m Reverse DNS lookup"
-	print "\033[32m[+]\033[36m GeoIP lookup"
-	print "\033[32m[+] \033[36mReverse IP lookup"
-	print "\033[32m[+] \033[36mHttp Response"
-	print "\033[32m[+] \033[36mPing"
-	print "\033[32m[+] \033[36mPage Link"
-	print "\033[32m[+] \033[36mNmap"
-	print "\033[32m[+] \033[36mTraceroute"
-	
-print
-print
-print
-mnu()
-print
-print
-print "\033[1m\033[32mEnter Your IP Or Domain..."
-print
-ip = raw_input("\033[1m\033[32m IP or Domain : \033[33m\033[1m")
-print
-time.sleep(3)
-whois()
-dns()
-reversedns()
-geoip()
-reverseip()
-http()
-ping()
-plink()
-nmap()
-trace()
-sys.exit()
